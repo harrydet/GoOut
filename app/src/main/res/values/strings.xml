@@ -4,5 +4,7 @@
     <string name="app_name">GoOutPortsmouth</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="town1">Portsmouth</string>
+    <string name="default_town">More coming soon...</string>
 
 </resources>
