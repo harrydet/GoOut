@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.gooutportsmouth.app.PortsmouthClubs"
+            android:label="@string/title_activity_portsmouth_clubs" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,21 +1,33 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.example.gooutportsmouth.app.MainActivity"
-    android:background="#ff1d71c6">
+    android:background="#ff1d71c6"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/town1"
-        android:id="@+id/mainMenuTown"
+        android:id="@+id/town1text"
         android:layout_below="@+id/view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="172dp"
         android:textSize="40dp"
         android:padding="6dp"
         android:background="@drawable/edittext"/>
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/town2"
+        android:id="@+id/town2text"
+        android:textSize="39dp"
+        android:padding="6dp"
+        android:gravity="center"
+        android:background="@drawable/edittext"/>
+
+</LinearLayout>
