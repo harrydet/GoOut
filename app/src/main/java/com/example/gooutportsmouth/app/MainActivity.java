@@ -1,6 +1,7 @@
 package com.example.gooutportsmouth.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -8,7 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements View.OnClickListener{
+public class MainActivity extends Activity implements View.OnClickListener {
 
 
     //Button animation variable
@@ -32,16 +33,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.town1text){
+        if (v.getId() == R.id.town1text) {
             v.startAnimation(animAlpha);
+            callPortsmouth(v);
         }
 
-        if(v.getId() == R.id.town2text){
+        if (v.getId() == R.id.town2text) {
             v.startAnimation(animAlpha);
         }
     }
 
-    public void setupWidgets(){
+    public void setupWidgets() {
         town1 = (TextView) findViewById(R.id.town1text);
         town1.setOnClickListener(this);
 
@@ -49,5 +51,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
         town2.setOnClickListener(this);
 
         animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+    }
+
+    public void callPortsmouth(View v) {
+        Intent intent = new Intent(this, PortsmouthClubs.class);
+        startActivity(intent);
     }
 }

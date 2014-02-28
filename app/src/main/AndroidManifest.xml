@@ -19,6 +19,9 @@
         <activity
             android:name="com.example.gooutportsmouth.app.PortsmouthClubs"
             android:label="@string/title_activity_portsmouth_clubs" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.gooutportsmouth.MainActivity" />
         </activity>
     </application>
 
