@@ -5,7 +5,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -16,7 +15,6 @@ public class PortsmouthClubs extends ActionBarActivity implements AdapterView.On
     ArrayList<String> clubs;
     ListView list;
     LazyAdapter adapter;
-    Animation animAlpha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +43,7 @@ public class PortsmouthClubs extends ActionBarActivity implements AdapterView.On
 
 
         list = (ListView) findViewById(R.id.list);
+        adapter = new LazyAdapter(this, clubs);
         adapter = new LazyAdapter(this, clubs);
         list.setAdapter(adapter);
         list.setOnItemClickListener(this);
