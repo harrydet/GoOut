@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -49,6 +50,10 @@ public class LazyAdapter extends BaseAdapter {
 
         TextView name = (TextView) vi.findViewById(R.id.club_name);
         name.setText(data.get(position));
+
+        ImageView secondLayer = (ImageView) vi.findViewById(R.id.second_layer);
+        secondLayer.setAlpha(0.0f);
+
         int[] color = {Color.rgb(196, 26, 26), Color.rgb(115, 20, 20)};
         float[] place = {0, 1};
         Shader.TileMode tile_mode0 = Shader.TileMode.REPEAT; // or TileMode.REPEAT;
