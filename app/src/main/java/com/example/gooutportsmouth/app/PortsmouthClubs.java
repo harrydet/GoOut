@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class PortsmouthClubs extends ActionBarActivity implements AdapterView.OnItemClickListener {
 
     ArrayList<String> clubs;
+    ArrayList<Integer> images;
     ListView list;
     LazyAdapter adapter;
 
@@ -27,24 +28,23 @@ public class PortsmouthClubs extends ActionBarActivity implements AdapterView.On
 
 
         clubs = new ArrayList<String>();
+        images = new ArrayList<Integer>();
 
 
-        clubs.add("Liquid");
+        clubs.add("Liquid and Envy");
         clubs.add("Tiger Tiger");
-        clubs.add("Tiger Tiger");
-        clubs.add("Tiger Tiger");
-        clubs.add("Tiger Tiger");
-        clubs.add("Tiger Tiger");
-        clubs.add("Tiger Tiger");
-        clubs.add("Tiger Tiger");
-        clubs.add("Tiger Tiger");
-        clubs.add("Tiger Tiger");
-        clubs.add("Tiger Tiger");
+        clubs.add("Astoria");
+
+        images.add(R.drawable.row_background_liquid);
+        images.add(R.drawable.row_background_liquid_color);
+        images.add(R.drawable.row_background_tiger);
+        images.add(R.drawable.row_background_tiger_color);
+        images.add(R.drawable.row_background_astoria);
+        images.add(R.drawable.row_background_astoria_color);
 
 
         list = (ListView) findViewById(R.id.list);
-        adapter = new LazyAdapter(this, clubs);
-        adapter = new LazyAdapter(this, clubs);
+        adapter = new LazyAdapter(this, clubs, images);
         list.setAdapter(adapter);
         list.setOnItemClickListener(this);
 

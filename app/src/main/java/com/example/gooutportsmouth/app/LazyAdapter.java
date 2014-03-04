@@ -24,11 +24,13 @@ public class LazyAdapter extends BaseAdapter {
     private Activity activity;
     private static LayoutInflater inflater = null;
     private ArrayList<String> data;
+    private ArrayList<Integer> images;
 
-    public LazyAdapter(Activity a, ArrayList<String> d) {
+    public LazyAdapter(Activity a, ArrayList<String> d, ArrayList<Integer> i) {
         activity = a;
         inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         data = d;
+        images = i;
     }
 
     public int getCount() {
@@ -50,6 +52,9 @@ public class LazyAdapter extends BaseAdapter {
 
         TextView name = (TextView) vi.findViewById(R.id.club_name);
         name.setText(data.get(position));
+
+        vi.setBackground(activity.getApplicationContext().getResources().getDrawable(images.get(position * 2)));
+        vi.findViewById(R.id.second_layer).setBackground(activity.getApplicationContext().getResources().getDrawable(images.get(position * 2 + 1)));
 
         ImageView secondLayer = (ImageView) vi.findViewById(R.id.second_layer);
         secondLayer.setAlpha(0.0f);

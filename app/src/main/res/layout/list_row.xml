@@ -3,14 +3,14 @@
     android:layout_width="fill_parent"
     android:layout_height="60dp"
     android:orientation="horizontal"
-    android:background="@drawable/row_background"
+    android:background="@drawable/row_background_liquid"
     android:padding="1dip">
 
     <ImageView
         android:id="@+id/second_layer"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/row_background_color"
+        android:background="@drawable/row_background_liquid_color"
         android:padding="0dp" />
 
     <TextView
