@@ -1,8 +1,8 @@
 package com.example.gooutportsmouth.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -16,6 +16,8 @@ public class PortsmouthClubs extends ActionBarActivity implements AdapterView.On
     ArrayList<Integer> images;
     ListView list;
     LazyAdapter adapter;
+
+    public final static String EXTRA_MESSAGE = "com.example.gooutportsmouth.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +55,16 @@ public class PortsmouthClubs extends ActionBarActivity implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.e("MESSAGE", Integer.toString(position));
         view.findViewById(R.id.second_layer).setAlpha(1f);
-        Log.e("Alpha", Float.toString(view.findViewById(R.id.second_layer).getAlpha()));
+
+        switch (position) {
+            case 0:
+                Intent intent = new Intent(this, ClubPage.class);
+                intent.putExtra(EXTRA_MESSAGE, position);
+                startActivity(intent);
+            default:
+                break;
+        }
     }
 
 }

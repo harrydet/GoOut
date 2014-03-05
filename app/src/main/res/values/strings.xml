@@ -8,5 +8,6 @@
     <string name="town2">Southampton</string>
     <string name="default_town">More coming soon...</string>
     <string name="title_activity_portsmouth_clubs">PortsmouthClubs</string>
+    <string name="title_activity_club_page">ClubPage</string>
 
 </resources>
