@@ -165,6 +165,8 @@ public class ClubPage extends Activity {
             case 0:
                 fragment = new HomeFragment();
                 break;
+            case 1:
+                fragment = new GridViewFragment();
             default:
                 break;
         }
