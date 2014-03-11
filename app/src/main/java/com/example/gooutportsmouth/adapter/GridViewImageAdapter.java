@@ -3,6 +3,7 @@ package com.example.gooutportsmouth.adapter;
 //import com.example.gooutportsmouth.FullScreenViewActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import com.example.gooutportsmouth.app.FullScreenViewActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -82,9 +85,9 @@ public class GridViewImageAdapter extends BaseAdapter {
         public void onClick(View v) {
             // on selecting grid view image
             // launch full screen activity
-            /*Intent i = new Intent(_activity, FullScreenViewActivity.class);
+            Intent i = new Intent(_activity, FullScreenViewActivity.class);
             i.putExtra("position", _postion);
-            _activity.startActivity(i);*/
+            _activity.startActivity(i);
         }
 
     }
@@ -101,11 +104,9 @@ public class GridViewImageAdapter extends BaseAdapter {
             o.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(new FileInputStream(f), null, o);
 
-            final int REQUIRED_WIDTH = WIDTH;
-            final int REQUIRED_HIGHT = HIGHT;
             int scale = 1;
-            while (o.outWidth / scale / 2 >= REQUIRED_WIDTH
-                    && o.outHeight / scale / 2 >= REQUIRED_HIGHT)
+            while (o.outWidth / scale / 2 >= WIDTH
+                    && o.outHeight / scale / 2 >= HIGHT)
                 scale *= 2;
 
             BitmapFactory.Options o2 = new BitmapFactory.Options();
