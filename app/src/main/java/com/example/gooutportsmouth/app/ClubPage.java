@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -44,6 +45,7 @@ public class ClubPage extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.club_layout);
 
         mTitle = mDrawerTitle = getTitle();
@@ -210,6 +212,14 @@ public class ClubPage extends Activity {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggles
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    public void progressOn() {
+        setProgressBarIndeterminateVisibility(true);
+    }
+
+    public void progressOff() {
+        setProgressBarIndeterminateVisibility(false);
     }
 
 }

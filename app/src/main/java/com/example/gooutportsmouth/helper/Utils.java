@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -29,7 +31,8 @@ public class Utils {
 
         File directory = new File(
                 android.os.Environment.getExternalStorageDirectory()
-                        + File.separator + AppConstant.PHOTO_ALBUM);
+                        + File.separator + AppConstant.PHOTO_ALBUM
+        );
         Log.e("Directory", directory.toString());
 
         // check for directory
@@ -58,7 +61,8 @@ public class Utils {
                         _context,
                         AppConstant.PHOTO_ALBUM
                                 + " is empty. Please load some images in it !",
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_LONG
+                ).show();
             }
 
         } else {
@@ -109,4 +113,40 @@ public class Utils {
         columnWidth = point.x;
         return columnWidth;
     }
+
+    public static void CopyStream(InputStream is, OutputStream os) {
+        final int buffer_size = 1024;
+        try {
+            byte[] bytes = new byte[buffer_size];
+            for (; ; ) {
+                int count = is.read(bytes, 0, buffer_size);
+                if (count == -1)
+                    break;
+                os.write(bytes, 0, count);
+            }
+        } catch (Exception ex) {
+        }
+    }
+
+    public ArrayList<String> grabLiquidThumbs(String host) {
+        ArrayList<String> links = new ArrayList<String>();
+
+        for (int i = 0; i < 30; i++) {
+            links.add(host + (1944645 + i) + "_icon.jpg");
+        }
+
+        return links;
+    }
+
+    public ArrayList<String> grabLiquidImages(String host) {
+        ArrayList<String> links = new ArrayList<String>();
+
+        for (int i = 0; i < 30; i++) {
+            links.add(host + (1944645 + i) + "_main.jpg");
+        }
+
+        return links;
+    }
+
+
 }

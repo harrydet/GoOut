@@ -1,5 +1,4 @@
 package com.example.gooutportsmouth.adapter;
-
 //import com.example.gooutportsmouth.FullScreenViewActivity;
 
 import android.app.Activity;
@@ -14,6 +13,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.example.gooutportsmouth.app.FullScreenViewActivity;
+import com.example.gooutportsmouth.app.R;
+import com.example.gooutportsmouth.helper.ImageLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -50,6 +51,9 @@ public class GridViewImageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ImageLoader imgLoader = new ImageLoader(_activity.getApplicationContext());
+
+
         ImageView imageView;
         if (convertView == null) {
             imageView = new ImageView(_activity);
@@ -58,13 +62,15 @@ public class GridViewImageAdapter extends BaseAdapter {
         }
 
         // get screen dimensions
-        Bitmap image = decodeFile(_filePaths.get(position), imageWidth,
-                imageWidth);
+        //Bitmap image = decodeFile(_filePaths.get(position), imageWidth,
+        //        imageWidth);
 
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         imageView.setLayoutParams(new GridView.LayoutParams(imageWidth,
                 imageWidth));
-        imageView.setImageBitmap(image);
+        //imageView.setImageBitmap(image);
+
+        imgLoader.DisplayImage(_filePaths.get(position), R.drawable.loader, imageView);
 
         // image view click listener
         imageView.setOnClickListener(new OnImageClickListener(position));

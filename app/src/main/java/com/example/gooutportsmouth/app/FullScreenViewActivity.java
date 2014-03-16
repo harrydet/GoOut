@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
 import com.example.gooutportsmouth.adapter.FullScreenImageAdapter;
+import com.example.gooutportsmouth.helper.AppConstant;
 import com.example.gooutportsmouth.helper.Utils;
 
 public class FullScreenViewActivity extends Activity {
@@ -13,6 +14,7 @@ public class FullScreenViewActivity extends Activity {
     private Utils utils;
     private FullScreenImageAdapter adapter;
     private ViewPager viewPager;
+    private AppConstant constants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +24,13 @@ public class FullScreenViewActivity extends Activity {
         viewPager = (ViewPager) findViewById(R.id.pager);
 
         utils = new Utils(getApplicationContext());
+        constants = new AppConstant();
 
         Intent i = getIntent();
         int position = i.getIntExtra("position", 0);
 
         adapter = new FullScreenImageAdapter(FullScreenViewActivity.this,
-                utils.getFilePaths());
+                utils.grabLiquidImages(constants.LIQUID_THUMB_SERVER));
 
         viewPager.setAdapter(adapter);
 

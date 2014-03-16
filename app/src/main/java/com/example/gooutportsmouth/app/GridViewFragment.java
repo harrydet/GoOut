@@ -18,7 +18,8 @@ import java.util.ArrayList;
 public class GridViewFragment extends Fragment {
 
     private Utils utils;
-    private ArrayList<String> imagePaths = new ArrayList<String>();
+    private AppConstant constants;
+    private ArrayList<String> imageThumbs = new ArrayList<String>();
     private GridViewImageAdapter adapter;
     private GridView gridView;
     private int columnWidth;
@@ -31,15 +32,19 @@ public class GridViewFragment extends Fragment {
         gridView = (GridView) rootView.findViewById(R.id.grid_view);
 
         utils = new Utils(getActivity().getApplicationContext());
+        constants = new AppConstant();
 
-        // Initilizing Grid View
+        // Initializing Grid View
         InitilizeGridLayout();
 
         // loading all image paths from SD card
-        imagePaths = utils.getFilePaths();
+        //imagePaths = utils.getFilePaths();
+
+        //get liquid links
+        imageThumbs = utils.grabLiquidThumbs(constants.LIQUID_THUMB_SERVER);
 
         // Gridview adapter
-        adapter = new GridViewImageAdapter(getActivity(), imagePaths,
+        adapter = new GridViewImageAdapter(getActivity(), imageThumbs,
                 columnWidth);
 
         // setting grid view adapter
