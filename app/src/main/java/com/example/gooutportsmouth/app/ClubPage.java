@@ -28,6 +28,8 @@ public class ClubPage extends Activity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
+    private int position;
+
     // nav drawer title
     private CharSequence mDrawerTitle;
 
@@ -47,6 +49,8 @@ public class ClubPage extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.club_layout);
+
+        position = getIntent().getIntExtra(PortsmouthClubs.EXTRA_MESSAGE, 0);
 
         mTitle = mDrawerTitle = getTitle();
 
@@ -220,6 +224,10 @@ public class ClubPage extends Activity {
 
     public void progressOff() {
         setProgressBarIndeterminateVisibility(false);
+    }
+
+    public int getPosition() {
+        return position;
     }
 
 }

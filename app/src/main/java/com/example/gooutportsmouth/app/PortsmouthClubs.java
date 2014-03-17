@@ -56,15 +56,9 @@ public class PortsmouthClubs extends ActionBarActivity implements AdapterView.On
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         view.findViewById(R.id.second_layer).setAlpha(1f);
-
-        switch (position) {
-            case 0:
-                Intent intent = new Intent(this, ClubPage.class);
-                intent.putExtra(EXTRA_MESSAGE, position);
-                startActivity(intent);
-            default:
-                break;
-        }
+        Intent intent = new Intent(this, ClubPage.class);
+        intent.putExtra(EXTRA_MESSAGE, position);
+        startActivity(intent);
     }
 
 }
