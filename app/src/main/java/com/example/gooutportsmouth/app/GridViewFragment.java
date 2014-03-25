@@ -34,14 +34,25 @@ public class GridViewFragment extends Fragment {
         utils = new Utils(getActivity().getApplicationContext());
         constants = new AppConstant();
 
+        ClubPage activity = (ClubPage) getActivity();
+
         // Initializing Grid View
         InitilizeGridLayout();
 
         // loading all image paths from SD card
         //imagePaths = utils.getFilePaths();
 
-        //get liquid links
-        imageThumbs = utils.grabLiquidThumbs(constants.LIQUID_THUMB_SERVER);
+        //get links
+        switch (activity.getPosition()) {
+            case 0:
+                imageThumbs = utils.grabLiquidThumbs(constants.LIQUID_THUMB_SERVER);
+                break;
+            case 1:
+                imageThumbs = utils.grabTigerImages(constants.TIGER_IMAGE_SERVER);
+                break;
+            default:
+                break;
+        }
 
         // Gridview adapter
         adapter = new GridViewImageAdapter(getActivity(), imageThumbs,

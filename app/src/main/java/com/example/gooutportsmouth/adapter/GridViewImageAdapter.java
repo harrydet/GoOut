@@ -3,8 +3,6 @@ package com.example.gooutportsmouth.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -12,13 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.example.gooutportsmouth.app.ClubPage;
 import com.example.gooutportsmouth.app.FullScreenViewActivity;
 import com.example.gooutportsmouth.app.R;
 import com.example.gooutportsmouth.helper.ImageLoader;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class GridViewImageAdapter extends BaseAdapter {
@@ -61,6 +57,7 @@ public class GridViewImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
+
         // get screen dimensions
         //Bitmap image = decodeFile(_filePaths.get(position), imageWidth,
         //        imageWidth);
@@ -68,8 +65,6 @@ public class GridViewImageAdapter extends BaseAdapter {
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         imageView.setLayoutParams(new GridView.LayoutParams(imageWidth,
                 imageWidth));
-        //imageView.setImageBitmap(image);
-
         imgLoader.DisplayImage(_filePaths.get(position), R.drawable.loader, imageView);
 
         // image view click listener
@@ -93,35 +88,10 @@ public class GridViewImageAdapter extends BaseAdapter {
             // launch full screen activity
             Intent i = new Intent(_activity, FullScreenViewActivity.class);
             i.putExtra("position", _postion);
+            i.putExtra("calledFrom", ((ClubPage) _activity).getPosition());
             _activity.startActivity(i);
         }
 
-    }
-
-    /*
-     * Resizing image size
-     */
-    public static Bitmap decodeFile(String filePath, int WIDTH, int HIGHT) {
-        try {
-
-            File f = new File(filePath);
-
-            BitmapFactory.Options o = new BitmapFactory.Options();
-            o.inJustDecodeBounds = true;
-            BitmapFactory.decodeStream(new FileInputStream(f), null, o);
-
-            int scale = 1;
-            while (o.outWidth / scale / 2 >= WIDTH
-                    && o.outHeight / scale / 2 >= HIGHT)
-                scale *= 2;
-
-            BitmapFactory.Options o2 = new BitmapFactory.Options();
-            o2.inSampleSize = scale;
-            return BitmapFactory.decodeStream(new FileInputStream(f), null, o2);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
 }

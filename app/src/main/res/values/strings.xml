@@ -19,7 +19,7 @@
 
     <array name="nav_drawer_icons">
         <item>@drawable/ic_home</item>
-        <item>@drawable/ic_photos</item>
+        <item>@drawable/ic_action_picture</item>
         <item>@drawable/ic_facebook</item>
         <item>@drawable/ic_twitter</item>
     </array>

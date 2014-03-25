@@ -9,12 +9,15 @@ import com.example.gooutportsmouth.adapter.FullScreenImageAdapter;
 import com.example.gooutportsmouth.helper.AppConstant;
 import com.example.gooutportsmouth.helper.Utils;
 
+import java.util.ArrayList;
+
 public class FullScreenViewActivity extends Activity {
 
     private Utils utils;
     private FullScreenImageAdapter adapter;
     private ViewPager viewPager;
     private AppConstant constants;
+    private ArrayList<String> imagePaths;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +32,18 @@ public class FullScreenViewActivity extends Activity {
         Intent i = getIntent();
         int position = i.getIntExtra("position", 0);
 
-        adapter = new FullScreenImageAdapter(FullScreenViewActivity.this,
-                utils.grabLiquidImages(constants.LIQUID_THUMB_SERVER));
+        switch (i.getIntExtra("calledFrom", 0)) {
+            case 0:
+                imagePaths = utils.grabLiquidImages(constants.LIQUID_THUMB_SERVER);
+                break;
+            case 1:
+                imagePaths = utils.grabTigerImages(constants.TIGER_IMAGE_SERVER);
+                break;
+            default:
+                break;
+        }
+
+        adapter = new FullScreenImageAdapter(FullScreenViewActivity.this, imagePaths);
 
         viewPager.setAdapter(adapter);
 

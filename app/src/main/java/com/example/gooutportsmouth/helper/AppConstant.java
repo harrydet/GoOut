@@ -19,4 +19,5 @@ public class AppConstant {
             "png");
 
     public static final String LIQUID_THUMB_SERVER = "http://www.tick.it/media/Galleries/37970/";
+    public static final String TIGER_IMAGE_SERVER = "http://www.tigertiger.co.uk/media/";
 }

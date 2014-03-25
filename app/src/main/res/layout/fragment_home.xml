@@ -2,20 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#ffffff">
 
-    <ImageView
+    <RelativeLayout
+        android:id="@+id/club_header"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/logo"
-        android:src="@drawable/liquid_logo"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
+        android:layout_height="wrap_content">
+
+        <ViewFlipper
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/club_flipper">
+
+            <ImageView
+                android:id="@+id/slide1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/liquid_slide1" />
+
+            <ImageView
+                android:id="@+id/slide2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/liquid_slide2" />
+
+            <ImageView
+                android:id="@+id/slide3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/liquid_slide3" />
+
+        </ViewFlipper>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/header_title"
+            android:text="Liquid"
+            android:textSize="40dp"
+            android:textColor="@color/counter_text_bg"
+            android:layout_alignBottom="@+id/club_flipper"
+            android:background="@drawable/transparent_gradient"
+            android:fontFamily="sans-serif-condensed" />
+    </RelativeLayout>
 
     <View
-        android:layout_width="300dp"
+        android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_gravity="center"
-        android:background="@android:color/darker_gray" />
+        android:background="#c0c0c0" />
+
 
 </LinearLayout>

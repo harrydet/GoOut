@@ -141,8 +141,18 @@ public class Utils {
     public ArrayList<String> grabLiquidImages(String host) {
         ArrayList<String> links = new ArrayList<String>();
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 25; i++) {
             links.add(host + (1944645 + i) + "_main.jpg");
+        }
+
+        return links;
+    }
+
+    public ArrayList<String> grabTigerImages(String host) {
+        ArrayList<String> links = new ArrayList<String>();
+
+        for (int i = 0; i < 25; i++) {
+            links.add(host + (51847 + i) + "/Image" + (1 + i) + ".jpg");
         }
 
         return links;
